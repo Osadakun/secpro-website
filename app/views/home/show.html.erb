@@ -6,6 +6,7 @@
       </p>
       <div class="home-time">
         <%= @member.plan %>
+        <%= link_to("退出", "/#{member.id}/destroy", {method: "post"}) %>
       </div>
     </div>
   </div>

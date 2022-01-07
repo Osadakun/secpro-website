@@ -7,6 +7,11 @@ class HomeController < ApplicationController
     @member = Member.find_by(id: params[:id])
   end
 
+  def destroy
+    @member = Member.find_by(id: params[:id])
+    @member.destroy
+    @member.save
+  end
   def create
     @member = Member.new(name: params[:name], plan: params[:times])
     @member.save
