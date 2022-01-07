@@ -11,7 +11,9 @@ class HomeController < ApplicationController
     @member = Member.find_by(id: params[:id])
     @member.destroy
     @member.save
+    redirect_to('/')
   end
+
   def create
     @member = Member.new(name: params[:name], plan: params[:times])
     @member.save
