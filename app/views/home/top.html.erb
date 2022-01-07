@@ -9,12 +9,10 @@
 	<div>
 		<label>名前</label>
 	</div>
-	<textarea name="name" required="required"></textarea>
+		<input name="name" type="text" required="required">
 	<div>
   	<label for="scheduled-time">帰宅予定時間</label>
   </div>
-	<input type="time" name="times" id="scheduled-time">
-	<div>
-		<button type="submit">確定</button>
-	</div>
+	<input type="time" name="times" required="required" >
+	<button type="submit">確定</button>
 <% end %>
