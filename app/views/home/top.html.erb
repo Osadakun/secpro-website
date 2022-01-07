@@ -1,4 +1,10 @@
 <h1>在室管理</h1>
+<div>
+	<% @member.each do |mem| %>
+		<%= link_to(mem.name, "/#{mem.id}") %>
+		<%= mem.plan%>
+	<% end%>
+</div>
 <%= form_tag('/create') do %>
 	<div>
 		<label>名前</label>

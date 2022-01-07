@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def top
+    @member = Member.all
   end
 
   def create
