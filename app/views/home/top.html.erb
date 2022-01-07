@@ -2,14 +2,14 @@
 <div>
 	<% @member.each do |mem| %>
 		<%= link_to(mem.name, "/#{mem.id}") %>
-		<%= mem.plan%>
+		<%= mem.plan %>
 	<% end%>
 </div>
 <%= form_tag('/create') do %>
 	<div>
 		<label>名前</label>
 	</div>
-	<textarea name="name"></textarea>
+	<textarea name="name" required="required"></textarea>
 	<div>
   	<label for="scheduled-time">帰宅予定時間</label>
   </div>
