@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  plan: 2022-01-07 13:23:46
+
+two:
+  name: MyText
+  plan: 2022-01-07 13:23:46
