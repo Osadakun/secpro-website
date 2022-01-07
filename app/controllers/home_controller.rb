@@ -3,6 +3,9 @@ class HomeController < ApplicationController
     @member = Member.all
   end
 
+  def show
+    @member = Member.find_by
+  end
   def create
     @member = Member.new(name: params[:name], plan: params[:times])
     @member.save
