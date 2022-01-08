@@ -1,18 +1,20 @@
-<h1>在室管理</h1>
-<div>
-	<% @member.each do |mem| %>
-		<%= link_to(mem.name, "/#{mem.id}") %>
-		<%= mem.plan %>
-	<% end%>
-</div>
-<%= form_tag('/create') do %>
-	<div>
-		<label>名前</label>
-	</div>
-		<input name="name" type="text" required="required">
-	<div>
-  	<label for="scheduled-time">帰宅予定時間</label>
+<div class="top-item">
+  <h1>在室管理</h1>
+  <div class="show-member">
+	  <% @member.each do |mem| %>
+		  <%= link_to(mem.name, "/#{mem.id}") %>
+	  	<%= mem.plan() %>
+  	<% end%>
   </div>
-	<input type="time" name="times" required="required" >
-	<button type="submit">確定</button>
-<% end %>
+  <%= form_tag('/create') do %>
+  	<div>
+  		<label>名前</label>
+  	</div>
+  		<input name="name" type="text" required="required">
+  	<div>
+    	<label for="scheduled-time">帰宅予定時間</label>
+    </div>
+  	<input type="time" name="times" required="required" >
+  	<button type="submit">確定</button>
+  <% end %>
+</div>
