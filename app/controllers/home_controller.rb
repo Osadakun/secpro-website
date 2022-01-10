@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def top
     @member = Member.all.order(plan: :asc)
+    @counter = Member.last
   end
 
   def show

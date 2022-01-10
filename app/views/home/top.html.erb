@@ -1,5 +1,7 @@
 <div class="top-item">
   <h1>在室管理</h1>
+  <% if @counter.count %>
+    <% %>
   <h4>本日の利用人数はです</h4>
   <div class="show-member">
 	  <% @member.each do |mem| %>
