@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   end
 
   def clear
-    @member = Member.all
+    @member = Member.all.order(plan: :asc)
   end
 
   def create
