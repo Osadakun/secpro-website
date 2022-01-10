@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def top
-    @member = Member.all
+    @member = Member.all.order(plan: :asc)
   end
 
   def show
@@ -12,6 +12,10 @@ class HomeController < ApplicationController
     @member.destroy
     @member.save
     redirect_to('/')
+  end
+
+  def clear
+    @member = Member.all
   end
 
   def create
