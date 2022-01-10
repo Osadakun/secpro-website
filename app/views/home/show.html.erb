@@ -5,9 +5,14 @@
         <%= @member.name %>
       </p>
       <div class="home-time">
-        <%= @member.plan.hour %>
+        <%= @member.plan("%H%M") %>
+        <%
+=begin%>
+ <%= @member.plan.hour %>
         <%= ":" %>
         <%= @member.plan.min %>
+<%
+=end%>
         <%= link_to("退出", "/#{@member.id}/destroy", {method: "post"}) %>
       </div>
     </div>
