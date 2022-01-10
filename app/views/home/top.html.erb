@@ -5,9 +5,14 @@
   <div class="show-member">
 	  <% @member.each do |mem| %>
 		  <%= link_to(mem.name, "/#{mem.id}") %>
-	  	<%= mem.plan.hour %>
+      <%= mem.plan %>
+	  	<%
+=begin%>
+ <%= mem.plan.hour %>
       <%= ":" %>
       <%= mem.plan.min %>
+<%
+=end%>
   	<% end%>
   </div>
   <%= form_tag('/create') do %>
