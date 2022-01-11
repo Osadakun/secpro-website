@@ -1,12 +1,17 @@
 <div class="top-item">
   <h1>在室管理</h1>
-  <%= Time.now %>
-  <%= @member.plan %>
+  <%= Time.now.strftime("%H:%M") %>
   <h4>本日の利用人数はです</h4>
   <div class="show-member">
 	  <% @member.each do |mem| %>
 		  <%= link_to(mem.name, "/#{mem.id}") %>
       <%= mem.plan.strftime("%H:%M") %>
+      <% if Time.now.strftime("%H:%M") >= mem.plan.strftime("%H:%M") %>
+        <%= link_to("/#{mem.id}/destroy", {method: "post"}) do %>
+          <button id="click">a</button>
+        <% end %>
+        <script>document.getElementById("click").click()</script>
+      <% end %>
   	<% end %>
   </div>
   <%= form_tag('/create') do %>
