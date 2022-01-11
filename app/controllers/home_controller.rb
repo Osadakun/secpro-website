@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def top
     @member = Member.all.order(plan: :asc)
-    @counter = @.count
+    @cnt = Count.find(1)
+    @cnt.save
   end
 
   def show
@@ -16,12 +17,17 @@ class HomeController < ApplicationController
   end
 
   def clear
-    @member = Member.all.order(plan: :asc)
+    @cnt = Count.find(1)
+    @cnt.counter = 0
+    @cnt.save
   end
 
   def create
     @member = Member.new(name: params[:name], plan: params[:times])
     @member.save
+    @cnt = Count.find(1)
+    @cnt.counter = @cnt.counter + 1
+    @cnt.save
     redirect_to('/')
   end
 end
