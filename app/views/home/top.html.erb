@@ -1,9 +1,24 @@
 <div class="top-item">
   <h1>在室管理</h1>
-  <%= Time.now.strftime("%H:%M") %>
-  <h4>本日の利用人数はです</h4>
+  <%
+=begin%>
+ <% if Time.now.strftime("%H:%M") == "00:00" %>
+    <% @counter=0 %>
+  <% end %> 
+<%
+=end%>
+  <%
+=begin%>
+ <%="本日の利用人数は#{@counter}人です"%> 
+<%
+=end%>
   <div class="show-member">
 	  <% @member.each do |mem| %>
+      <%
+=begin%>
+ <% @counter  @counter + 1 %> 
+<%
+=end%>
 		  <%= link_to(mem.name, "/#{mem.id}") %>
       <%= mem.plan.strftime("%H:%M") %>
       <% if Time.now.strftime("%H:%M") >= mem.plan.strftime("%H:%M") %>
@@ -26,3 +41,5 @@
   	<button type="submit">確定</button>
   <% end %>
 </div>
+  <%="本日の利用人数は#{@counter}人です"%>
+
