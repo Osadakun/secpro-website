@@ -12,7 +12,8 @@ module Secpro
     config.load_defaults 6.1
     config.time_zone = 'Tokyo'
     config.active_record.time_zone_aware_types = [:datetime, :time]
-
+    config.autoload_paths += Dir["#{config.root}/lib"]
+    config.paths.add 'lib', eager_load: true  # これがないと本番環境で定期実行がエラーになるらしい
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
