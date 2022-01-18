@@ -16,12 +16,6 @@ class HomeController < ApplicationController
     redirect_to('/')
   end
 
-  def clear
-    @cnt = Count.find(1)
-    @cnt.counter = 0
-    @cnt.save
-  end
-
   def create
     @member = Member.new(name: params[:name], plan: params[:times])
     @member.save
