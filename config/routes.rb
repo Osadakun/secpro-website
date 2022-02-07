@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
   get '/res' => 'home#reservation'
   get '/enter' => 'home#enter'
+  post '/update' => 'home#update'
   post '/create_enter' => 'home#create_enter'
   post '/create_res' => 'home#create_res'
   get '/:id' => 'home#show'

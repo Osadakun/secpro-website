@@ -17,6 +17,9 @@ class HomeController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
     @member = Member.find_by(id: params[:id])
     @member.update(name: params[:name], in_time: params[:in_time], out_time: params[:out_time])
   end
