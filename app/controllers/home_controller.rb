@@ -16,6 +16,11 @@ class HomeController < ApplicationController
     redirect_to('/')
   end
 
+  def edit
+    @member = Member.find_by(id: params[:id])
+    @member.update(name: params[:name], in_time: params[:in_time], out_time: params[:out_time])
+  end
+
   def create_enter
     @times = Time.now
     @member = Member.new(name: params[:name], in_time: @times, out_time: params[:out_time])

@@ -1,17 +1,11 @@
-<div class="main home-show">
-  <div class="container">
-    <div class="home-show-item">
-      <p>
+<div class="show-item">
         <%= @member.name %>
-      </p>
       <div class="home-time">
         <%
 =begin%>
  <%= @member.plan.strftime("%H:%M") %> 
 <%
 =end%>
-        <%= link_to("退出", "/#{@member.id}/destroy", {method: "post"}) %>
-      </div>
-    </div>
-  </div>
+  <%= link_to "編集", "/#{@member.id}/edit", class: "text" %>
+  <%= link_to "退出", "/#{@member.id}/destroy", class: "text" %>
 </div>

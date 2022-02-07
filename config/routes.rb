@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/create_enter' => 'home#create_enter'
   post '/create_res' => 'home#create_res'
   get '/:id' => 'home#show'
-
-  post '/:id/destroy' => 'home#destroy'
+  get '/:id/edit' => 'home#edit'
+  get '/:id/destroy' => 'home#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
