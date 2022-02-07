@@ -1,22 +1,33 @@
 <div class="top-item">
   <h1>在室管理</h1>
   <div class="item_name">
-    <table>
+  <table>
+    <thead>
       <tr>
         <th>名前</th>
         <th>入室(予定)時間</th>
         <th>退出予定時間</th>
       </tr>
+    </thead>
   </div>
-    <div class="show-member">
-	  <% @member.each do |mem| %>
+  <% @member.each do |mem| %>
+    <tbody>
       <tr>
         <th><%= link_to mem.name, "/#{mem.id}", class:"user_name" %></th>
         <th>時間</th>
-        <th><%= mem.plan&.strftime("%H:%M") %></th>
+        <th><%= mem.plan%></th>
       </tr>
-    <% end %>
+    </tbody>
+  <% end %>
   </table>
+
+  <div>
+    <%= link_to "入室", "/enter", class: "under_item" %>
+    <%= link_to "予約", "/res", class: "under_item" %>
+  </div>
+  <%="本日の利用人数は#{@cnt.counter}人です"%>
+</div>
+
       <%
 =begin%>
  <% if Time.now&.strftime("%H:%M") >= mem.plan&.strftime("%H:%M") %>
@@ -27,12 +38,4 @@
       <% end %>
 <%
 =end%>
-  </div>
-  <div>
-    <%= link_to "入室", "/enter", class: "under_item" %>
-    <%= link_to "予約", "/res", class: "under_item" %>
-  </div>
-  <%="本日の利用人数は#{@cnt.counter}人です"%>
-</div>
-
 
