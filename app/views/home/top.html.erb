@@ -15,7 +15,13 @@
       <tr>
         <th><%= link_to mem.name, "/#{mem.id}", class:"user_name" %></th>
         <th>時間</th>
-        <th><%= mem.plan%></th>
+        <% if mem.plan.min < 10%>
+          <% min = "0" + mem.plan.min.to_s%>
+        <% else %>
+          <% min = mem.plan.min.to_s%>
+        <% end %>
+        <% time = mem.plan.hour.to_s + ":" + min%>
+        <th><%= "#{time}"%></th>
       </tr>
     </tbody>
   <% end %>
