@@ -1,9 +1,22 @@
 <div class="top-item">
   <h1>在室管理</h1>
-  <div class="show-member">
+  <div class="item_name">
+    <table>
+      <tr>
+        <th>名前</th>
+        <th>入室(予定)時間</th>
+        <th>退出予定時間</th>
+      </tr>
+  </div>
+    <div class="show-member">
 	  <% @member.each do |mem| %>
-    	<%= link_to mem.name, "/#{mem.id}", class:"user_name" %>
-      <%= mem.plan&.strftime("%H:%M") %>
+      <tr>
+        <th><%= link_to mem.name, "/#{mem.id}", class:"user_name" %></th>
+        <th>時間</th>
+        <th><%= mem.plan&.strftime("%H:%M") %></th>
+      </tr>
+    <% end %>
+  </table>
       <%
 =begin%>
  <% if Time.now&.strftime("%H:%M") >= mem.plan&.strftime("%H:%M") %>
@@ -14,7 +27,6 @@
       <% end %>
 <%
 =end%>
-    <% end %>
   </div>
   <div>
     <%= link_to "入室", "/enter", class: "under_item" %>
