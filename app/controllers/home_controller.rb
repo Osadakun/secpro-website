@@ -9,6 +9,10 @@ class HomeController < ApplicationController
     @member = Member.find_by(id: params[:id])
   end
 
+  def reservation
+    @times = Time.now
+  end
+
   def destroy
     @member = Member.find_by(id: params[:id])
     @member.destroy
@@ -17,7 +21,7 @@ class HomeController < ApplicationController
   end
 
   def create
-    @member = Member.new(name: params[:name], plan: params[:times])
+    @member = Member.new(name: params[:name], in_time: params[:in_time], out_time: params[:out_time])
     @member.save
     @cnt = Count.find(1)
     @cnt.counter += 1

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_060354) do
+ActiveRecord::Schema.define(version: 2022_02_07_173516) do
 
   create_table "counts", force: :cascade do |t|
     t.integer "counter"
@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 2022_01_12_060354) do
 
   create_table "members", force: :cascade do |t|
     t.text "name"
-    t.datetime "plan"
+    t.datetime "in_time"
+    t.datetime "out_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
