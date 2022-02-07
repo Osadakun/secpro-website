@@ -1,0 +1,7 @@
+<%= form_with url: "/create" do |f| %>
+	<%= f.label :name, "名前" %><br>
+	<%= f.text_field :name, required: true %><br>
+	<%= f.label :times, "退出予定時間" %><br>
+	<input type="time" class="times" required="required"><br><br>
+	<%= f.submit "確定", class: "btn" %>
+<% end %>

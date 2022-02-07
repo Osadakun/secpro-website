@@ -20,7 +20,7 @@ class HomeController < ApplicationController
     @member = Member.new(name: params[:name], plan: params[:times])
     @member.save
     @cnt = Count.find(1)
-    @cnt.counter = @cnt.counter + 1
+    @cnt.counter += 1
     @cnt.save
     redirect_to('/')
   end

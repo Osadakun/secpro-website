@@ -2,31 +2,26 @@
   <h1>在室管理</h1>
   <div class="show-member">
 	  <% @member.each do |mem| %>
-    	<%= link_to(mem.name, "/#{mem.id}") %>
-      <%= mem.plan.strftime("%H:%M") %>
-      <% if Time.now.strftime("%H:%M") >= mem.plan.strftime("%H:%M") %>
+    	<%= link_to mem.name, "/#{mem.id}", class:"user_name" %>
+      <%= mem.plan&.strftime("%H:%M") %>
+      <%
+=begin%>
+ <% if Time.now&.strftime("%H:%M") >= mem.plan&.strftime("%H:%M") %>
         <%= link_to("/#{mem.id}/destroy", {method: "post"}) do %>
           <button id="click">a</button>
         <% end %>
         <script>document.getElementById("click").click()</script>
-      <% end %>
-  	<% end %>
-  </div>
-  <%= form_tag('/create') do %>
-  	<div>
-  		<label>名前</label>
-  	</div>
-  		<input name="name" type="text" required="required">
-  	<div>
-    	<label for="scheduled-time">退出予定時間</label>
-    </div>
-  	<input type="time" name="times" required="required" >
-    <%
-=begin%>
- <% @cnt.counter = @cnt.counter + 1 %> 
+      <% end %> 
 <%
 =end%>
-  	<button type="submit">確定</button>
+    <% end %>
+  </div>
+  <%= form_with url: "/create" do |f| %>
+    <%= f.label :name, "名前" %><br>
+    <%= f.text_field :name, required: true %><br>
+    <%= f.label :times, "退出予定時間" %><br>
+    <input type="time" class="times" required="required"><br><br>
+    <%= f.submit "確定"%>
   <% end %>
   <%="本日の利用人数は#{@cnt.counter}人です"%>
 </div>
