@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
   get '/res' => 'home#reservation'
   get '/enter' => 'home#enter'
-  post '/create' => 'home#create'
+  post '/create_enter' => 'home#create_enter'
+  post '/create_res' => 'home#create_res'
   get '/:id' => 'home#show'
 
   post '/:id/destroy' => 'home#destroy'
