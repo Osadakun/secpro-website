@@ -11,18 +11,15 @@
           <button id="click">a</button>
         <% end %>
         <script>document.getElementById("click").click()</script>
-      <% end %> 
+      <% end %>
 <%
 =end%>
     <% end %>
   </div>
-  <%= form_with url: "/create" do |f| %>
-    <%= f.label :name, "名前" %><br>
-    <%= f.text_field :name, required: true %><br>
-    <%= f.label :times, "退出予定時間" %><br>
-    <input type="time" class="times" required="required"><br><br>
-    <%= f.submit "確定"%>
-  <% end %>
+  <div>
+    <%= link_to "入室", "/enter", class: "under_item" %>
+    <%= link_to "予約", "/res", class: "under_item" %>
+  </div>
   <%="本日の利用人数は#{@cnt.counter}人です"%>
 </div>
 
