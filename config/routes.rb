@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get '/:id' => 'home#show'
   get '/:id/edit' => 'home#edit'
   post '/:id/edit/update' => 'home#update'
-  get '/:id/destroy' => 'home#destroy'
+  post '/:id/destroy' => 'home#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

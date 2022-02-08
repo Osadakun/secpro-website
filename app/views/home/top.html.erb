@@ -14,6 +14,12 @@
     <tbody>
       <tr>
         <th><%= link_to mem.name, "/#{mem.id}", class:"user_name" %></th>
+        <% if Time.now >= mem.out_time %>
+          <%= link_to("/#{mem.id}/destroy", {method: "post"}) do %>
+            <button id="click">a</button>
+          <% end %>
+          <script>document.getElementById("click").click()</script>
+        <% end %>
         <% if mem.in_time.min < 10%>
           <% min = "0" + mem.in_time.min.to_s%>
         <% else %>
@@ -39,15 +45,3 @@
   </div>
   <%="本日の利用人数は#{@cnt.counter}人です"%>
 </div>
-
-      <%
-=begin%>
- <% if Time.now&.strftime("%H:%M") >= mem.plan&.strftime("%H:%M") %>
-        <%= link_to("/#{mem.id}/destroy", {method: "post"}) do %>
-          <button id="click">a</button>
-        <% end %>
-        <script>document.getElementById("click").click()</script>
-      <% end %>
-<%
-=end%>
-
