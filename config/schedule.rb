@@ -9,7 +9,7 @@ set :output, "/Users/onotoshiki/Code/secpro-website/log/cron.log"
 set :environment, :development
 
 every 1.day, at: '00:00 am' do
-	runner 'Batch::ClearCounter.clear_counter'
+  runner 'Batch::ClearCounter.clear_counter'
 end
 #
 # every 2.hours do
